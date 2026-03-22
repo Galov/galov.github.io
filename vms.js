@@ -20,23 +20,25 @@ const revealObserver = new IntersectionObserver(
 
 revealNodes.forEach((node) => revealObserver.observe(node));
 
-const parallaxNodes = document.querySelectorAll("[data-parallax]");
+const hero = document.querySelector(".hero");
+const heroParallaxText = document.querySelector('.hero [data-parallax="text"]');
+const heroParallaxImage = document.querySelector('.hero [data-parallax="image"]');
 
-if (parallaxNodes.length > 0 && !prefersReducedMotion) {
+if (hero && heroParallaxText && heroParallaxImage && !prefersReducedMotion) {
   let ticking = false;
 
   const updateParallax = () => {
-    const viewportCenter = window.innerHeight / 2;
+    const rect = hero.getBoundingClientRect();
+    const distanceScrolled = Math.max(0, -rect.top);
+    const textShift = Math.min(distanceScrolled * 0.24, 64);
+    const imageShift = Math.min(distanceScrolled * 0.38, 112);
+    const textOpacity = Math.max(1 - distanceScrolled / 350, 0.44);
+    const imageOpacity = Math.max(1 - distanceScrolled / 600, 0.8);
 
-    parallaxNodes.forEach((node) => {
-      const speed = Number(node.dataset.parallax || 0.06);
-      const rect = node.getBoundingClientRect();
-      const elementCenter = rect.top + rect.height / 2;
-      const distance = elementCenter - viewportCenter;
-      const shift = distance * speed * -0.18;
-
-      node.style.transform = `translate3d(0, ${shift.toFixed(2)}px, 0)`;
-    });
+    heroParallaxText.style.transform = `translate3d(0, ${textShift.toFixed(2)}px, 0)`;
+    heroParallaxImage.style.transform = `translate3d(0, ${imageShift.toFixed(2)}px, 0)`;
+    heroParallaxText.style.opacity = textOpacity.toFixed(3);
+    heroParallaxImage.style.opacity = imageOpacity.toFixed(3);
 
     ticking = false;
   };

@@ -33,7 +33,7 @@
 
       <main id="home">
         <section class="hero">
-          <div class="hero-copy" data-reveal="up">
+          <div class="hero-copy" data-reveal="up" data-parallax="text">
             <p class="eyebrow">Коса, маникюр, грим и детайл</p>
             <h1>Тук не създаваме красота. Тя вече е в теб. Просто я подчертаваме.</h1>
             <div class="hero-actions">
@@ -43,7 +43,7 @@
           </div>
 
           <div class="hero-visual" data-reveal="fade">
-            <figure class="hero-photo-frame" data-parallax="0.12">
+            <figure class="hero-photo-frame" data-parallax="image">
               <img
                 class="hero-photo"
                 src="assets/mahdi.png"
@@ -53,61 +53,70 @@
           </div>
         </section>
 
-        <section class="metrics" data-reveal="up">
-          <div>
-            <span>Индивидуален подход</span>
-            <p>Всяка визия започва с внимание към чертите, стила и усещането, което искаш да носиш.</p>
-          </div>
-          <div>
-            <span>Фин детайл</span>
-            <p>Красотата не е в излишъка, а в добре премерените решения.</p>
-          </div>
-          <div>
-            <span>Завършен резултат</span>
-            <p>Търсим визия, която изглежда уверено, поддържано и истински твоя.</p>
+        <section class="metrics-wrap">
+          <div class="metrics" data-reveal="up">
+            <div>
+              <span>Индивидуален подход</span>
+              <p>Всяка визия започва с внимание към чертите, стила и усещането, което искаш да носиш.</p>
+            </div>
+            <div>
+              <span>Фин детайл</span>
+              <p>Красотата не е в излишъка, а в добре премерените решения.</p>
+            </div>
+            <div>
+              <span>Завършен резултат</span>
+              <p>Търсим визия, която изглежда уверено, поддържано и истински твоя.</p>
+            </div>
           </div>
         </section>
 
         <section class="section services" id="services">
           <div class="section-heading" data-reveal="up">
-            <p class="eyebrow">Core services</p>
-            <h2>Услуги, подредени около истинската сила на бранда.</h2>
+            <h2>Услуги, подредени около теб.</h2>
           </div>
 
           <div class="service-grid">
             <article class="service-item" data-reveal="up">
-              <span>01</span>
-              <h3>Hair styling</h3>
-              <p>
-                Подстригване, оформяне и finishing, които стоят clean и фотогенично.
-              </p>
+              <div class="service-item-inner">
+                <span>01</span>
+                <h3>Коса</h3>
+                <p>
+                  Подстригване, оформяне и финален щрих, които стоят естествено и уверено.
+                </p>
+              </div>
             </article>
             <article class="service-item" data-reveal="up">
-              <span>02</span>
-              <h3>Color &amp; gloss</h3>
-              <p>
-                Блясък, тон и дълбочина за коса с ясен контур и живо присъствие.
-              </p>
+              <div class="service-item-inner">
+                <span>02</span>
+                <h3>Цвят и блясък</h3>
+                <p>
+                  Блясък, тон и дълбочина за коса с ясен контур и живо присъствие.
+                </p>
+              </div>
             </article>
             <article class="service-item" data-reveal="up">
-              <span>03</span>
-              <h3>Nails</h3>
-              <p>
-                Маникюр с графична чистота, добра форма и внимание към малкия детайл.
-              </p>
+              <div class="service-item-inner">
+                <span>03</span>
+                <h3>Маникюр</h3>
+                <p>
+                  Маникюр с графична чистота, добра форма и внимание към малкия детайл.
+                </p>
+              </div>
             </article>
             <article class="service-item" data-reveal="up">
-              <span>04</span>
-              <h3>Makeup</h3>
-              <p>
-                Soft glam или силно изразен look за поводи, снимки и уверен everyday finish.
-              </p>
+              <div class="service-item-inner">
+                <span>04</span>
+                <h3>Грим</h3>
+                <p>
+                  Мек блясък или по-изразена визия за поводи, снимки и уверено присъствие.
+                </p>
+              </div>
             </article>
           </div>
         </section>
 
         <section class="section split-section" id="ritual">
-          <div class="split-visual" data-reveal="fade" data-parallax="0.08">
+          <div class="split-visual" data-reveal="fade">
             <div class="texture texture-one"></div>
             <div class="texture texture-two"></div>
           </div>
@@ -140,7 +149,6 @@
             <div class="gallery-panel gallery-tall" data-reveal="fade">
               <img
                 class="gallery-image"
-                data-parallax="0.06"
                 src="https://images.pexels.com/photos/33277965/pexels-photo-33277965.jpeg?cs=srgb&amp;dl=pexels-____dhayvid-1869702487-33277965.jpg&amp;fm=jpg"
                 alt="Студиен beauty портрет на жена на неутрален фон"
               />
@@ -152,7 +160,6 @@
             <div class="gallery-panel gallery-wide" data-reveal="fade">
               <img
                 class="gallery-image"
-                data-parallax="0.06"
                 src="https://images.pexels.com/photos/13767162/pexels-photo-13767162.jpeg?cs=srgb&amp;dl=pexels-geezy-photography-325144321-13767162.jpg&amp;fm=jpg"
                 alt="Близък beauty кадър с акцент върху грим и кожа"
               />
@@ -164,7 +171,6 @@
             <div class="gallery-panel gallery-accent" data-reveal="fade">
               <img
                 class="gallery-image"
-                data-parallax="0.06"
                 src="https://images.pexels.com/photos/7446912/pexels-photo-7446912.jpeg?cs=srgb&amp;dl=pexels-gustavo-fring-7446912.jpg&amp;fm=jpg"
                 alt="Маникюрна процедура в beauty salon"
               />
