@@ -196,6 +196,15 @@ a.button {
   background: #121411;
 }
 
+.hero-mobile {
+  display: none;
+}
+
+[data-mobile-fade] {
+  opacity: 1;
+  transform: none;
+}
+
 .hero-copy,
 .hero-visual {
   position: relative;
@@ -869,43 +878,104 @@ a.button {
     padding: 1rem;
   }
 
-  .hero {
-    gap: 1.5rem;
-    padding-inline: 1rem;
-    padding-top: 3.5rem;
-    padding-bottom: 6rem;
+  .hero-desktop {
+    display: none;
+  }
+
+  .hero-mobile {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    min-height: 32rem;
+    padding: 1.5rem 1rem 0;
+    overflow: hidden;
+    background: #121411;
+  }
+
+  .hero-mobile.is-visible .hero-mobile-bg {
+    opacity: 1;
+    transform: scale(1);
   }
 
   .brand-logo {
     height: 2.7rem;
   }
 
-  .hero h1 {
-    font-size: clamp(1.8rem, 8.8vw, 2.7rem);
+  .hero-mobile h1 {
+    margin: 0;
+    max-width: 9ch;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 700;
+    font-size: clamp(1.55rem, 7.4vw, 2.3rem);
+    line-height: 1.08;
   }
 
-  .hero-actions,
+  .hero-mobile .hero-actions,
   .footer {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .hero-visual {
-    min-height: 390px;
+  .hero-mobile .hero-actions {
+    margin-top: 2rem;
   }
 
-  .hero-photo-frame {
-    width: 100%;
-    margin: 0;
+  .hero-mobile-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+      linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.76) 34%, rgba(0, 0, 0, 0.32) 58%, rgba(0, 0, 0, 0) 78%),
+      url("assets/mahdi.png");
+    background-repeat: no-repeat;
+    background-size: auto 50%;
+    background-position: right -0.5rem top 4.5rem;
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(1.05);
+    transition:
+      opacity 1800ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 2600ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .hero-photo {
-    height: 28rem;
+  .hero-mobile-copy {
+    position: relative;
+    z-index: 1;
+    max-width: 18rem;
+  }
+
+  .hero-mobile [data-mobile-fade] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 1400ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 1800ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .hero-mobile.is-visible [data-mobile-fade] {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .hero-mobile.is-visible [data-mobile-fade="1"] {
+    transition-delay: 280ms;
+  }
+
+  .hero-mobile.is-visible [data-mobile-fade="2"] {
+    transition-delay: 500ms;
+  }
+
+  .hero-mobile.is-visible [data-mobile-fade="3"] {
+    transition-delay: 760ms;
   }
 
   .metrics,
   .service-grid {
     grid-template-columns: 1fr;
+  }
+
+  .metrics-wrap {
+    padding: 0 0 3rem;
   }
 
   .section {

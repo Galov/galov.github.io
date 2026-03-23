@@ -1,5 +1,6 @@
 const revealNodes = document.querySelectorAll("[data-reveal]");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const mobileHero = document.querySelector(".hero-mobile");
 
 const revealObserver = new IntersectionObserver(
   (entries) => {
@@ -20,9 +21,23 @@ const revealObserver = new IntersectionObserver(
 
 revealNodes.forEach((node) => revealObserver.observe(node));
 
-const hero = document.querySelector(".hero");
-const heroParallaxText = document.querySelector('.hero [data-parallax="text"]');
-const heroParallaxImage = document.querySelector('.hero [data-parallax="image"]');
+if (mobileHero) {
+  const revealMobileHero = () => {
+    mobileHero.classList.add("is-visible");
+  };
+
+  if (prefersReducedMotion) {
+    revealMobileHero();
+  } else {
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(revealMobileHero);
+    });
+  }
+}
+
+const hero = document.querySelector(".hero-desktop");
+const heroParallaxText = document.querySelector('.hero-desktop [data-parallax="text"]');
+const heroParallaxImage = document.querySelector('.hero-desktop [data-parallax="image"]');
 
 if (hero && heroParallaxText && heroParallaxImage && !prefersReducedMotion) {
   let ticking = false;
