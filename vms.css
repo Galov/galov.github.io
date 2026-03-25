@@ -497,10 +497,22 @@ a.button {
 }
 
 .split-section {
+  width: 100%;
+  margin: 0;
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   gap: 2rem;
   align-items: center;
+  background: linear-gradient(
+    180deg,
+    #3d3d3d 0%,
+    #343434 18%,
+    #292b28 50%,
+    #343434 82%,
+    #3d3d3d 100%
+  );
+  border-radius: 0;
+  padding-inline: max(1rem, calc((100vw - var(--max-width)) / 2));
 }
 
 .split-visual {
@@ -931,6 +943,10 @@ a.button {
       "hair"
       "brows"
       "nails";
+  }
+
+  .split-section {
+    padding-inline: 1rem;
   }
 }
 
